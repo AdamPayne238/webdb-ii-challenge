@@ -9,14 +9,13 @@ exports.up = function(knex) {
   return knex.schema.createTable('cars', (table) => {
     table.increments();
 
-    table.string('VIN', 128);
+    table.string('VIN', 128).notNullable();
     table.string('make', 128).notNullable();
     table.string('model', 128).notNullable();
-    table.float('mileage', 64);
+    table.float('mileage', 64).notNullable();
 
-    // this information is not always immediately known.
-    // table.string('transmission', 128);
-    // table.string('title', 128);
+    table.string('transmission', 128);
+    table.string('title', 128);
 
     table.timestamps(true, true);
   })
